@@ -53,7 +53,7 @@ public class LevelLogic : MonoBehaviour
                 return;
             }
             Amount++;
-            AmountText.text = Amount.ToString();          
+            AmountText.text = Amount.ToString();
         }
         else if (tag == "Decrease")
         {
@@ -87,7 +87,11 @@ public class LevelLogic : MonoBehaviour
         canPlay = true;
         stagesScript.canPlay = canPlay;
         coinManager.Energy--;
+        coinManager.Coins -= Amount;
+        coinManager.CoinText.text = coinManager.Coins.ToString();
+        coinManager.SaveCoin();
         coinManager.SaveEnergy();
+        stagesScript.ShopButton();
         stagesScript.cashOut.text = Amount.ToString();
         Debug.Log("Can play" + stagesScript.canPlay);
     }

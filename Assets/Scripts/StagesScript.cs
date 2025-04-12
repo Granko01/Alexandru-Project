@@ -39,9 +39,14 @@ public class StagesScript : MonoBehaviour
 
     public GameObject[] ProgressBar;
 
+    public GameObject LosePanel;
+
+    public int FirstBranchCoinWin = 1;
+
     private void Start()
     {
         ShuffleLogic();
+        UpdateButtonInteractivity();
     }
 
     public void ShuffleLogic()
@@ -130,6 +135,14 @@ public class StagesScript : MonoBehaviour
                                 }
                                 cashOut.text = levelLogic.Amount.ToString();
                                 StartCoroutine(HandleStageProgressWithDelay());
+                                if (currentRow == 1 && FirstBranchCoinWin == 1)
+                                {
+                                    gameCoinManager.FirstBranchCoinAmount++;
+                                    gameCoinManager.FirstBranchCoinText[0].text = gameCoinManager.FirstBranchCoinAmount.ToString();
+                                    gameCoinManager.FirstBranchCoinText[1].text = gameCoinManager.FirstBranchCoinAmount.ToString();
+                                    gameCoinManager.SaveFirstBranchCoin();
+                                    FirstBranchCoinWin++;
+                                }
                             }
                         }
                         else if (buttonTag == "Regress")
@@ -148,6 +161,8 @@ public class StagesScript : MonoBehaviour
                         else if (buttonTag == "Gameover")
                         {
                             Debug.Log("Gameover found");
+                            LosePanel.gameObject.SetActive(true);
+                            SceneManager.LoadScene("Branch1");
                         }
 
                         hasExecuted = true;
@@ -276,7 +291,7 @@ public class StagesScript : MonoBehaviour
         }
 
         currentRow = currentTreeStage;
-       
+        UpdateButtonInteractivity();
     }
 
     void TreeStageRegress()
@@ -307,6 +322,7 @@ public class StagesScript : MonoBehaviour
         currentRevealIndex = revealIndicesHistory.Count > 0 ? revealIndicesHistory[^1] : 0;
         revealIndicesHistory.RemoveAt(revealIndicesHistory.Count - 1);
         DecreaseNextProgressBar();
+        UpdateButtonInteractivity();
     }
 
 
@@ -346,6 +362,22 @@ public class StagesScript : MonoBehaviour
         Buttonpress = 0;
         hasExecuted = false;
     }
+    private void UpdateButtonInteractivity()
+    {
+        for (int i = 0; i < Treerow.Length; i++)
+        {
+            bool isCurrentRow = (i == currentRow);
+            Button[] buttons = Treerow[i].GetComponentsInChildren<Button>(true);
+
+            foreach (Button btn in buttons)
+            {
+                btn.interactable = isCurrentRow;
+            }
+        }
+    }
+
+
+
 
     IEnumerator GoHome()
     {
@@ -363,7 +395,15 @@ public class StagesScript : MonoBehaviour
         }
         shop.gameObject.SetActive(false);
     }
-
+    public GameObject ShopBTN;
+    public void ShopButton()
+    {
+        Button shopButton = ShopBTN.GetComponent<Button>();
+        if (shopButton != null)
+        {
+            shopButton.interactable = false;
+        }
+    }
     public void CashOut()
     {
         gameCoinManager.Coins += (int)levelLogic.Amount;

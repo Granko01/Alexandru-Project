@@ -12,6 +12,7 @@ public class GameCoinManager : MonoBehaviour
     public int maxEnergy = 100;
     public float energyWaitTime;
     public int BlueCircleAmount;
+    public int FirstBranchCoinAmount;
 
 
     [Header("Text's")]
@@ -19,6 +20,7 @@ public class GameCoinManager : MonoBehaviour
     public Text CoinText;
     public Text Timer;
     public Text[] BlueCirlceText;
+    public Text[] FirstBranchCoinText;
 
     private float lastEnergyGivenTime;
     private float timeLeft;
@@ -28,6 +30,9 @@ public class GameCoinManager : MonoBehaviour
     private const string LastEnergyTimeKey = "LastEnergyTime";
     private const string CoinKey = "Coins";
     private const string BlueCoinKey = "BlueCoin";
+    private const string FirstBranchCoinKey = "FirstBranchCoin";
+
+    public GameObject SellPanel;
 
    
 
@@ -36,11 +41,14 @@ public class GameCoinManager : MonoBehaviour
         LoadEnergy();
         LoadCoin();
         LoadBlueCoin();
+        LoadFirstBranchCoin();
         StartCoroutine(EnergyTimer());
         CoinText.text = ((int)Coins).ToString();
         Energytext.text = Energy.ToString();
         BlueCirlceText[0].text = BlueCircleAmount.ToString();
         BlueCirlceText[1].text = BlueCircleAmount.ToString();
+        FirstBranchCoinText[0].text = FirstBranchCoinAmount.ToString();
+        FirstBranchCoinText[1].text = FirstBranchCoinAmount.ToString();
     }
 
     void Update()
@@ -95,6 +103,11 @@ public class GameCoinManager : MonoBehaviour
         BlueCircleAmount = PlayerPrefs.GetInt(BlueCoinKey, 0);
     }
 
+    public void LoadFirstBranchCoin()
+    {
+        FirstBranchCoinAmount = PlayerPrefs.GetInt(FirstBranchCoinKey, 0);
+    }
+
     IEnumerator EnergyTimer()
     {
         while (true)
@@ -129,6 +142,12 @@ public class GameCoinManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void SaveFirstBranchCoin()
+    {
+        PlayerPrefs.SetInt(FirstBranchCoinKey, FirstBranchCoinAmount);
+        PlayerPrefs.Save();
+    }
+
     public void SpendEnergy(int amount)
     {
         Energy = Mathf.Max(Energy - amount, 0);
@@ -142,6 +161,11 @@ public class GameCoinManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
+    public void OpenSellPanel()
+    {
+        SellPanel.gameObject.SetActive(true);
+    }
+
     public void SpendCoins(int amount)
     {
         Debug.Log(amount);
@@ -149,17 +173,23 @@ public class GameCoinManager : MonoBehaviour
         {
             Coins -= amount;
             CoinText.text = ((int)Coins).ToString();
-            BlueCircleAmount++;
-            BlueCirlceText[0].text = BlueCircleAmount.ToString();
-            BlueCirlceText[1].text = BlueCircleAmount.ToString();
-            SaveBlueCircle();
+            FirstBranchCoinAmount++;
+            FirstBranchCoinText[0].text = FirstBranchCoinAmount.ToString();
+            FirstBranchCoinText[1].text = FirstBranchCoinAmount.ToString();
+            //BlueCircleAmount++;
+            //BlueCirlceText[0].text = BlueCircleAmount.ToString();
+            //BlueCirlceText[1].text = BlueCircleAmount.ToString();
+            //SaveBlueCircle();
+            SaveFirstBranchCoin();
             SaveCoin();
+            SellPanel.gameObject.SetActive(false);
         }
         else
         {
             Debug.Log("Ska pare");
+            SellPanel.gameObject.SetActive(false);
         }
-       
+
     }
 
 }
