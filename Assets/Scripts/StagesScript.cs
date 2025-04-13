@@ -43,10 +43,18 @@ public class StagesScript : MonoBehaviour
 
     public int FirstBranchCoinWin = 1;
 
+    public Text Multiplier;
+
+    public Animator anim;
+
+    public int ActivateCount = 1;
+
+
     private void Start()
     {
         ShuffleLogic();
         UpdateButtonInteractivity();
+        GetButtonStates();
     }
 
     public void ShuffleLogic()
@@ -121,27 +129,57 @@ public class StagesScript : MonoBehaviour
                             Buttonpress++;
                             if (Buttonpress == 1)
                             {
-                                if (firstBet == 1)
+                                if (levelLogic.Amount >= 5 || levelLogic.Amount <= 13)
                                 {
-                                    levelLogic.Amount *= 1.5f;
-                                    firstBet++;
+                                    Debug.Log(levelLogic.Amount + " Amount");
+                                    if (currentRow < 6 && currentRow >= 0)
+                                    {
+                                        levelLogic.Amount *= 1.75f;
+                                        Multiplier.text = "X1.75";
+                                        anim.SetBool("play", true);
+                                        Debug.Log("Is joining");
+                                    }
+                                    else if (currentRow >= 6)
+                                    {
+                                        levelLogic.Amount *= 2.25f;
+                                        Multiplier.text = "X2.25";
+                                        anim.SetBool("play", true);
+                                    }
                                 }
-                                else
+                                else if (levelLogic.Amount > 13 || levelLogic.Amount <= 15)
                                 {
-                                    Debug.Log("Before " + levelLogic.Amount);
-                                    levelLogic.Amount *= 1.5f;
-                                    Debug.Log("After " + levelLogic.Amount);
-
+                                    if (currentRow < 6)
+                                    {
+                                        levelLogic.Amount *= 1.5f;
+                                        Multiplier.text = "X1.5";
+                                        anim.SetBool("play", true);
+                                    }
+                                    else if (currentRow >= 6)
+                                    {
+                                        levelLogic.Amount *= 1.85f;
+                                        Multiplier.text = "X1.85";
+                                        anim.SetBool("play", true);
+                                    }
                                 }
                                 cashOut.text = levelLogic.Amount.ToString();
                                 StartCoroutine(HandleStageProgressWithDelay());
-                                if (currentRow == 1 && FirstBranchCoinWin == 1)
+                                if (currentRow == 6 && FirstBranchCoinWin == 1)
                                 {
-                                    gameCoinManager.FirstBranchCoinAmount++;
-                                    gameCoinManager.FirstBranchCoinText[0].text = gameCoinManager.FirstBranchCoinAmount.ToString();
-                                    gameCoinManager.FirstBranchCoinText[1].text = gameCoinManager.FirstBranchCoinAmount.ToString();
-                                    gameCoinManager.SaveFirstBranchCoin();
-                                    FirstBranchCoinWin++;
+                                    if (SceneManager.GetActiveScene().name == "Branch1")
+                                    {
+                                        gameCoinManager.FirstBranchCoinAmount++;
+                                        gameCoinManager.FirstBranchCoinText[0].text = gameCoinManager.FirstBranchCoinAmount.ToString();
+                                        gameCoinManager.FirstBranchCoinText[1].text = gameCoinManager.FirstBranchCoinAmount.ToString();
+                                        gameCoinManager.SaveFirstBranchCoin();
+                                        FirstBranchCoinWin++;
+                                    }
+                                    else if (SceneManager.GetActiveScene().name == "Branch2")
+                                    {
+                                        gameCoinManager.SecondBranchCoinAmount++;
+                                        gameCoinManager.SecondBranchCoinText[0].text = gameCoinManager.SecondBranchCoinAmount.ToString();
+                                        gameCoinManager.SaveSecondBranchCoin();
+                                        FirstBranchCoinWin++;
+                                    }
                                 }
                             }
                         }
@@ -151,7 +189,39 @@ public class StagesScript : MonoBehaviour
                             Buttonpress++;
                             if (Buttonpress == 1)
                             {
-                                TreeStageRegress();                              
+                                if (levelLogic.Amount >= 5 || levelLogic.Amount <= 13)
+                                {
+                                    Debug.Log(levelLogic.Amount + " Amount");
+                                    if (currentRow < 6 && currentRow >= 0)
+                                    {
+                                        levelLogic.Amount /= 1.75f;
+                                        Multiplier.text = "/1.75";
+                                        anim.SetBool("play", true);
+                                        Debug.Log("Is joining");
+                                    }
+                                    else if (currentRow >= 6)
+                                    {
+                                        levelLogic.Amount /= 2.25f;
+                                        Multiplier.text = "/2.25";
+                                        anim.SetBool("play", true);
+                                    }
+                                }
+                                else if (levelLogic.Amount > 13 || levelLogic.Amount <= 15)
+                                {
+                                    if (currentRow < 6)
+                                    {
+                                        levelLogic.Amount /= 1.5f;
+                                        Multiplier.text = "/1.5";
+                                        anim.SetBool("play", true);
+                                    }
+                                    else if (currentRow >= 6)
+                                    {
+                                        levelLogic.Amount /= 1.85f;
+                                        Multiplier.text = "/1.85";
+                                        anim.SetBool("play", true);
+                                    }
+                                }
+                                TreeStageRegress();
                                 Vector3 pos = RowHolder.transform.position;
                                 pos.y -= 160f;
                                 RowHolder.transform.position = pos;
@@ -162,7 +232,7 @@ public class StagesScript : MonoBehaviour
                         {
                             Debug.Log("Gameover found");
                             LosePanel.gameObject.SetActive(true);
-                            SceneManager.LoadScene("Branch1");
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                         }
 
                         hasExecuted = true;
@@ -183,7 +253,10 @@ public class StagesScript : MonoBehaviour
         RevealAllImages();
         ShowNextProgressBar();
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+
+        anim.SetBool("play", false);
+        Multiplier.text = "";
 
         foreach (GameObject parent in logic)
         {
@@ -292,6 +365,9 @@ public class StagesScript : MonoBehaviour
 
         currentRow = currentTreeStage;
         UpdateButtonInteractivity();
+        ShuffleLogic();
+        GetButtonStates();
+        ActivateCount--;
     }
 
     void TreeStageRegress()
@@ -302,6 +378,8 @@ public class StagesScript : MonoBehaviour
             Treerow[currentRow].gameObject.SetActive(false);
           
             StartCoroutine(FadeOut(TreeStages[currentTreeStage]));
+
+
 
             currentTreeStage--;
             Debug.Log($"Tree regressed to stage: {currentTreeStage}");
@@ -323,6 +401,9 @@ public class StagesScript : MonoBehaviour
         revealIndicesHistory.RemoveAt(revealIndicesHistory.Count - 1);
         DecreaseNextProgressBar();
         UpdateButtonInteractivity();
+        anim.SetBool("play", false);
+        ActivateCount--;
+        GetButtonStates();
     }
 
 
@@ -383,7 +464,7 @@ public class StagesScript : MonoBehaviour
     {
         Debug.Log("Finished");
         yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("Branch1");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ShopMethod()
@@ -412,4 +493,97 @@ public class StagesScript : MonoBehaviour
         gameCoinManager.SaveCoin();
         StartCoroutine(GoHome());
     }
+    
+    public void ActivateSafeChoice()
+    {
+       
+        if (gameCoinManager.SafeChoiceAmount >= 1)
+        {
+            int ActiavePerRound = ActivateCount;
+            if (ActiavePerRound == 1)
+            {
+                foreach (GameObject row in logic)
+                {
+                    row.tag = "Progress";
+                }
+                SideMethodToSpendSafeChoice();
+                ActivateCount++;
+            }
+            else
+            {
+                Debug.Log("You already activated");
+            }
+        }
+        else
+        {
+            Debug.Log("No safe choice coins left");
+        }
+      
+    }
+
+    public void SideMethodToSpendSafeChoice()
+    {
+        gameCoinManager.SafeChoiceAmount--;
+        gameCoinManager.SafeChoiceText[0].text = gameCoinManager.SafeChoiceAmount.ToString();
+        gameCoinManager.SaveSafeChoiceCoin();
+    }
+
+
+    public List<Button> GetButtonStates()
+    {
+        Button[] buttons = Treerow[currentRow].GetComponentsInChildren<Button>(true);
+        List<Button> wrongChoices = new List<Button>();
+        Debug.Log(wrongChoices.Count);
+
+        foreach (Button btn in buttons)
+        {
+            if (btn.gameObject.activeInHierarchy && btn.tag != "Progress")
+            {
+                wrongChoices.Add(btn);
+                Debug.Log(wrongChoices.Count + "After");
+            }
+        }
+
+        return wrongChoices;
+    }
+
+    public void ActivateEliminateOne()
+    {
+        List<Button> wrongChoices = GetButtonStates();
+        if (gameCoinManager.EleminateOneAmount > 0)
+        {
+            int ActiavePerRound = ActivateCount;
+            if (ActiavePerRound == 1)
+            {
+
+
+                if (wrongChoices.Count > 0)
+                {
+                    foreach (Button wrongButton in wrongChoices)
+                    {
+                        wrongButton.interactable = false;
+                    }
+                    gameCoinManager.EleminateOneAmount--;
+                    gameCoinManager.EleminateText[0].text = gameCoinManager.EleminateOneAmount.ToString();
+                    gameCoinManager.SaveEleminateOneCoin();
+                    ActivateCount++;
+                    Debug.Log($"Eliminate One activated: Disabled all wrong buttons.");
+
+                    if (wrongChoices.Count == Treerow[currentRow].GetComponentsInChildren<Button>(true).Length)
+                    {
+                        Debug.Log("All buttons are wrong, progressing to the next stage.");
+                        TreeStageProgress();
+                    }
+                }
+            }
+            else
+            {
+                Debug.Log("Throw something");
+            }
+        }
+    }
+
+
+
+
 }

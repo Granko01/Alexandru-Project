@@ -28,9 +28,16 @@ public class BranchManager : MonoBehaviour
     {
         foreach (GameObject branch in Branches)
         {
-            if (branch.CompareTag(tag))
+            if (branch.tag == "Branch")
             {
                 SceneManager.LoadScene("Branch1");
+                Coins.SetActive(true);
+                btn[0].interactable = false;
+                btn[1].interactable = false;
+            }
+            else if (branch.tag == "Branch2")
+            {
+                SceneManager.LoadScene("Branch2");
                 Coins.SetActive(true);
                 btn[0].interactable = false;
                 btn[1].interactable = false;
@@ -40,6 +47,16 @@ public class BranchManager : MonoBehaviour
                 branch.SetActive(false);
             }
         }
+    }
+
+    public void Branch1()
+    {
+        SceneManager.LoadScene("Branch1");
+    }
+
+    public void Branch2()
+    {
+        SceneManager.LoadScene("Branch2");
     }
 
     public void ActivateHomeShop(string tag)

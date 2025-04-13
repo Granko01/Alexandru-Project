@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelLogic : MonoBehaviour
@@ -28,6 +29,8 @@ public class LevelLogic : MonoBehaviour
 
     public StagesScript stagesScript;
     public GameCoinManager coinManager;
+
+    public Button[] shopButtons;
 
     void Start()
     {
@@ -94,6 +97,13 @@ public class LevelLogic : MonoBehaviour
         stagesScript.ShopButton();
         stagesScript.cashOut.text = Amount.ToString();
         Debug.Log("Can play" + stagesScript.canPlay);
+        shopButtons[0].interactable = true;
+        shopButtons[1].interactable = true;
+    }
+
+    public void GoHome()
+    {
+        SceneManager.LoadScene("Home");
     }
 
 }
