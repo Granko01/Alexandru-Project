@@ -232,8 +232,7 @@ public class StagesScript : MonoBehaviour
                         else if (buttonTag == "Gameover")
                         {
                             Debug.Log("Gameover found");
-                            LosePanel.gameObject.SetActive(true);
-                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                            StartCoroutine(GameOverWait());
                         }
 
                         hasExecuted = true;
@@ -303,6 +302,16 @@ public class StagesScript : MonoBehaviour
             }
         }
         TreeStageRegress();
+    }
+
+    private IEnumerator GameOverWait()
+    {
+        RevealAllImages();
+        LosePanel.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
     }
 
     int progressBarCount = 0;

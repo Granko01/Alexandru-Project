@@ -1164,6 +1164,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 39057924}
   m_CullTransparentMesh: 1
+--- !u!1 &39892294 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8951971310022693966, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 16175980709501114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &40658380
 GameObject:
   m_ObjectHideFlags: 0
@@ -8440,11 +8445,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &262075543 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6206983226976979054, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
-  m_PrefabInstance: {fileID: 16175980709501114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &278806872
 GameObject:
   m_ObjectHideFlags: 0
@@ -12669,7 +12669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 242}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &428822182
@@ -20867,9 +20867,9 @@ MonoBehaviour:
   - {fileID: 894800303}
   EleminateText:
   - {fileID: 420536146}
-  SellPanel: {fileID: 262075543}
-  SellPanel1: {fileID: 0}
-  SellPanel2: {fileID: 1243636878}
+  SellPanel: {fileID: 1001988155}
+  SellPanel1: {fileID: 39892294}
+  SellPanel2: {fileID: 1331806463}
   stagesScript: {fileID: 1151335221}
 --- !u!1 &666909016
 GameObject:
@@ -31918,6 +31918,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994307427}
   m_CullTransparentMesh: 1
+--- !u!1 &1001988155 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8648312185340477505, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 16175980709501114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1003079155
 GameObject:
   m_ObjectHideFlags: 0
@@ -39153,11 +39158,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!1 &1243636878 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4773708847073878071, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
-  m_PrefabInstance: {fileID: 16175980709501114}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1243997287
 GameObject:
   m_ObjectHideFlags: 0
@@ -41767,6 +41767,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1329951063}
   m_CullTransparentMesh: 1
+--- !u!1 &1331806463 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2249310015795659734, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 16175980709501114}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1333498003
 GameObject:
   m_ObjectHideFlags: 0
@@ -64831,14 +64836,50 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661007006}
+    - target: {fileID: 2001562979496626462, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 2001562979496626462, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSellPanel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622754168585265698, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 2622754168585265698, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendBranchCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 3463126167402224479, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3463126167402224479, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661007006}
     - target: {fileID: 3640071082208773144, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_TargetGraphic
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3640071082208773144, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661007006}
+    - target: {fileID: 3957828779478979951, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 3957828779478979951, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 4773708847073878071, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4828453094202569907, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -64927,6 +64968,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5714833219169307133, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 5714833219169307133, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSellPanel2
+      objectReference: {fileID: 0}
     - target: {fileID: 5910916440390685995, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -64935,20 +64984,49 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661007006}
+    - target: {fileID: 6981965314689405997, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 6981965314689405997, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendUniCoins
+      objectReference: {fileID: 0}
     - target: {fileID: 7549625545273795310, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_Name
       value: Shop
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549625545273795310, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7674033376491582074, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 661007006}
+    - target: {fileID: 7843989938382032381, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 7843989938382032381, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendUniCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 8648312185340477505, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8673728969797179063, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 693825228}
+    - target: {fileID: 8951971310022693966, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4773708847073878071, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
