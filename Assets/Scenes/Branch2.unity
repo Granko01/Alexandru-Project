@@ -3768,6 +3768,7 @@ RectTransform:
   - {fileID: 1811206935}
   - {fileID: 851153540}
   - {fileID: 495441378}
+  - {fileID: 649611347}
   - {fileID: 1558707899}
   - {fileID: 481624812}
   m_Father: {fileID: 1360890866}
@@ -21401,6 +21402,208 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1001 &649611346
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 132676799}
+    m_Modifications:
+    - target: {fileID: 855271532077300142, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 08f3571ff7dd5cc438bf6fd28808e646, type: 3}
+    - target: {fileID: 1904199035108931539, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 1904199035108931539, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendUniCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 2001562979496626462, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 2001562979496626462, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSellPanel1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2249310015795659734, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622754168585265698, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 2622754168585265698, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendBranchCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957828779478979951, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 3957828779478979951, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 4828453094202569907, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 4828453094202569907, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSellPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032746428045619444, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 5032746428045619444, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5714833219169307133, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 5714833219169307133, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSellPanel2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6981965314689405997, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 6981965314689405997, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendUniCoins
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549625545273795310, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_Name
+      value: Shop_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549625545273795310, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7843989938382032381, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 661007006}
+    - target: {fileID: 7843989938382032381, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SpendUniCoins
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: 4773708847073878071, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+--- !u!224 &649611347 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5048343907733410554, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 649611346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &649611348 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2249310015795659734, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 649611346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &649611349 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8951971310022693966, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 649611346}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &649611350 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8648312185340477505, guid: 6e6750fb4c356c24c854b01f606a6e61, type: 3}
+  m_PrefabInstance: {fileID: 649611346}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &658314489
 GameObject:
   m_ObjectHideFlags: 0
@@ -21510,9 +21713,9 @@ MonoBehaviour:
   - {fileID: 894800303}
   EleminateText:
   - {fileID: 420536146}
-  SellPanel: {fileID: 262075543}
-  SellPanel1: {fileID: 641077141}
-  SellPanel2: {fileID: 1243636878}
+  SellPanel: {fileID: 649611350}
+  SellPanel1: {fileID: 649611349}
+  SellPanel2: {fileID: 649611348}
   stagesScript: {fileID: 1151335221}
 --- !u!1 &666909016
 GameObject:
