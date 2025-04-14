@@ -12,6 +12,7 @@ public class BranchManager : MonoBehaviour
     public UnityEngine.UI.Button[] btn;
     public GameObject Coins;
     public GameObject TimeGMB;
+    public GameObject Info;
 
 
     void Start()
@@ -95,5 +96,17 @@ public class BranchManager : MonoBehaviour
             TimeGMB.SetActive(false);
         }
         
+    }
+
+    public void InfoPanel()
+    {
+        if (Info.activeSelf)
+        {
+            Info.gameObject.SetActive(false);
+        }
+        else if (!Info.activeSelf)
+        {
+            Info.gameObject.SetActive(true);
+        }
     }
 }
