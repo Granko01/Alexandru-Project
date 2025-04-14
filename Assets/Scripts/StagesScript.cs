@@ -221,7 +221,8 @@ public class StagesScript : MonoBehaviour
                                         anim.SetBool("play", true);
                                     }
                                 }
-                                TreeStageRegress();
+                                StartCoroutine(HandleStageRegressWithDelay());
+                                
                                 Vector3 pos = RowHolder.transform.position;
                                 pos.y -= 160f;
                                 RowHolder.transform.position = pos;
@@ -280,6 +281,30 @@ public class StagesScript : MonoBehaviour
         RowHolder.transform.position = pos;
     }
 
+    private IEnumerator HandleStageRegressWithDelay()
+    {
+        RevealAllImages(false);
+        yield return new WaitForSeconds(2f);
+        anim.SetBool("play", false);
+        Multiplier.text = "";
+
+        foreach (GameObject parent in logic)
+        {
+            foreach (Transform child in parent.transform)
+            {
+                if (child.gameObject.activeSelf)
+                {
+                    Image img = child.GetComponent<Image>();
+                    if (img != null)
+                    {
+                        img.enabled = false;
+                    }
+                }
+            }
+        }
+        TreeStageRegress();
+    }
+
     int progressBarCount = 0;
 
     public void ShowNextProgressBar()
@@ -307,7 +332,7 @@ public class StagesScript : MonoBehaviour
     public List<int> revealIndicesHistory = new List<int>();
 
 
-    private void RevealAllImages()
+    private void RevealAllImages(bool addToHistory = true)
     {
         List<GameObject> activeChildren = new List<GameObject>();
 
@@ -334,9 +359,12 @@ public class StagesScript : MonoBehaviour
             }
         }
 
-        revealIndicesHistory.Add(currentRevealIndex);
+        if (addToHistory)
+            revealIndicesHistory.Add(currentRevealIndex);
+
         currentRevealIndex = nextRevealEnd;
     }
+
 
 
 
@@ -395,8 +423,9 @@ public class StagesScript : MonoBehaviour
             Debug.Log("Tree is at the smallest stage!");
         }
 
-        currentRow = currentTreeStage;
+       
         ShuffleLogic();
+        currentRow = currentTreeStage;
         currentRevealIndex = revealIndicesHistory.Count > 0 ? revealIndicesHistory[^1] : 0;
         revealIndicesHistory.RemoveAt(revealIndicesHistory.Count - 1);
         DecreaseNextProgressBar();
